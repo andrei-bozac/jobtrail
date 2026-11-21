@@ -1,0 +1,15 @@
+# Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Sistem
+.DS_Store
+Thumbs.db
+
+# Loguri și fișiere temporare
+*.log
+*.tmp

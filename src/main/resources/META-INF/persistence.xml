@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+
+    <persistence-unit name="pgPU" transaction-type="JTA">
+        <jta-data-source>java:/jdbc/PostgresDS</jta-data-source>
+
+        <class>ro.jobtrail.entity.Companie</class>
+        <class>ro.jobtrail.entity.Contact</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="mssqlPU" transaction-type="JTA">
+        <jta-data-source>java:/jdbc/MssqlDS</jta-data-source>
+
+        <class>ro.jobtrail.entity.Aplicare</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_nationalized_character_data" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="oraclePU" transaction-type="JTA">
+        <jta-data-source>java:/jdbc/OracleDS</jta-data-source>
+
+        <class>ro.jobtrail.entity.Interviu</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

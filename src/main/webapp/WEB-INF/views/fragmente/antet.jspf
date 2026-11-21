@@ -1,0 +1,56 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${titluPagina} · JobTrail</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand fw-semibold" href="${pageContext.request.contextPath}/companii">
+            <i class="bi bi-briefcase"></i> JobTrail
+        </a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link ${meniuActiv == 'tablou' ? 'active' : ''}"
+                   href="${pageContext.request.contextPath}/tablou">Tablou</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ${meniuActiv == 'companii' ? 'active' : ''}"
+                   href="${pageContext.request.contextPath}/companii">Companii</a>
+            </li>
+           <li class="nav-item">
+               <a class="nav-link ${meniuActiv == 'aplicari' ? 'active' : ''}"
+                  href="${pageContext.request.contextPath}/aplicari">Aplicări</a>
+           </li>
+            <li class="nav-item">
+            <a class="nav-link ${meniuActiv == 'interviuri' ? 'active' : ''}"
+                  href="${pageContext.request.contextPath}/interviuri">Interviuri</a>
+             </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container py-4">
+
+    <c:if test="${not empty sessionScope.mesajSucces}">
+        <div class="alert alert-success alert-dismissible fade show">
+            <i class="bi bi-check-circle"></i> ${sessionScope.mesajSucces}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <c:remove var="mesajSucces" scope="session"/>
+    </c:if>
+    <c:if test="${not empty sessionScope.mesajEroare}">
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="bi bi-exclamation-triangle"></i> ${sessionScope.mesajEroare}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <c:remove var="mesajEroare" scope="session"/>
+    </c:if>
